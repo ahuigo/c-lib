@@ -1,4 +1,7 @@
-; for x86-64 on mac osx
+; for x86-64 on mac osx!
+;	nasm -f macho64 -o asm1.o asm1.asm
+;	ld -o asm1 -e _main asm1.o
+;	./asm1
 SECTION .data
 
 msg: db "hello xiaozi!", 0x0a
@@ -21,6 +24,3 @@ _main:
     mov rax,0x2000001
     mov rdi,0
     call kernel
-;nasm -f macho64 -o asm1.o asm1.asm
-;ld -o asm1 -e _main asm1.o
-;./asm1
