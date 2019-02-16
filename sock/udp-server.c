@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 
 	Bind(sockfd, (struct sockaddr *)&servaddr, sizeof(servaddr));
 
-	printf("Accepting connections...\n");
+	printf("Accepting connections: localhost:%d\n", SERV_PORT);
 	char buf[MAXLINE];
 	char str[INET_ADDRSTRLEN];
 	int i,n;
