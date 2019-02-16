@@ -5,10 +5,21 @@
 #include <ctype.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include "socklib.h"
+/*#include "socklib.h"*/
 
 #define MAXLINE 80
 #define SERV_PORT 8000
+
+void perr_exit(const char *s){
+	perror(s);
+	exit(1);
+}
+
+
+void Bind(int fd, const struct sockaddr *sa, socklen_t salen) {
+	if (bind(fd, sa, salen) < 0)
+		perr_exit("bind error");
+}
 
 int main(int argc, char **argv) {
 	int sockfd;
