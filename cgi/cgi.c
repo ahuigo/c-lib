@@ -1,6 +1,6 @@
 /**
  * @author mengkang.net https://segmentfault.com/a/1190000009863108
- * curl 'http://localhost:9003/user.cgi?id=1'
+ * curl 'http://localhost:9003/c-shell?id=1'
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -67,19 +67,18 @@ int main(void)
  
         //============================ cgi 环境变量设置演示 ============================
          
-        // 例如 "GET /user.cgi?id=1 HTTP/1.1";
+        // 例如 "GET /c-shell?id=1 HTTP/1.1";
  
         char *delim = " ";
         char *p;
         char *method, *filename, *query_string;
-        char *query_string_pre = "QUERY_STRING=";
+        char *query_string_pre = "QUERY=";
  
         method = strtok(buf,delim);         // GET
-        p = strtok(NULL,delim);             // /user.cgi?id=1 
-        filename = strtok(p,"?");           // /user.cgi
+        p = strtok(NULL,delim);             // /c-shell?id=1 
+        filename = strtok(p,"?");           // /c-shell
          
-        if (strcmp(filename,"/favicon.ico") == 0)
-        {
+        if (strcmp(filename,"/favicon.ico") == 0) {
             continue;
         }
  
