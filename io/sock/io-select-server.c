@@ -43,9 +43,7 @@ int main(int argc, char **argv) {
 	for ( ; ; ) {
 		rset = allset;	/* structure assignment */
 
-        printf("listen...\n");
 		nready = select(maxfd+1, &rset, NULL, NULL, NULL);//Block until there is any fd ready
-        printf("new data...\n");
 		if (nready < 0)
 			perr_exit("select error");
 
