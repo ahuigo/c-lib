@@ -1,8 +1,9 @@
-	#include <stdio.h>
-	#include <stdlib.h>
-	#include <errno.h>
-	#include <stdarg.h>
-	#include <string.h>
+// gcc getputc.c -lapue
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <stdarg.h>
+#include <string.h>
 
 #include "apue.h"
 

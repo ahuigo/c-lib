@@ -61,9 +61,12 @@ int main(void)
         }
  
         cin = fdopen(cfd, "r");
+        //c-io-buffer.md 无缓冲
         setbuf(cin, (char *)0);
+        // 或setbuf(cin, NULL);
+
         fgets(buf,1024,cin); //读取第一行
-        printf("\n%s", buf);
+        printf("header:%s\n", buf);
  
         //============================ cgi 环境变量设置演示 ============================
          
@@ -96,7 +99,8 @@ int main(void)
         else if (pid == 0)
         {
             close(lfd);
-            FILE *stream = popen(str_join(".",filename),"r");
+            //FILE *stream = popen("./c-shell","r");
+            FILE *stream = popen("echo $QUERY","r");
             fread(buf,sizeof(char),sizeof(buf),stream);
             html_response(web_result,buf);
             write(cfd,web_result,sizeof(web_result));
