@@ -39,6 +39,7 @@ int main(int argc, char **argv) {
 		client[i] = -1;	/* -1 indicates available entry */
 	FD_ZERO(&allset);
 	FD_SET(listenfd, &allset); /* add new descriptor to allset hash table*/
+                                /* gcc -E a.c*/
 
 	for ( ; ; ) {
 		rset = allset;	/* structure assignment */
