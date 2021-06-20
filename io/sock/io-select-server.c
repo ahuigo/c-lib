@@ -26,6 +26,7 @@ int main(int argc, char **argv) {
 	servaddr.sin_family      = AF_INET;
 	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	servaddr.sin_port        = htons(SERV_PORT);
+    printf("listen:%d\n", SERV_PORT);
 
 	int saopt = 1;
 	setsockopt(listenfd, SOL_SOCKET, SO_REUSEADDR, &saopt, sizeof(saopt));
